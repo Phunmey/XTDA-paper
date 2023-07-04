@@ -1,12 +1,10 @@
 import os
-
 os.environ["OMP_NUM_THREADS"] = '1'  # this line is to prevent the warning I get wrt KMeans
 import webbrowser
 import kmapper as km
 import pandas as pd
 import sklearn
-#from sklearn import manifold
-from sklearn.cluster import DBSCAN, AgglomerativeClustering, KMeans
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
 
 
@@ -36,17 +34,9 @@ print("mapper started with " + str(len(pd.DataFrame(Xfilt).index)) + " data poin
 graph = mapper.map(
     lens,
     Xfilt,
-    #clusterer=sklearn.cluster.KMeans(random_state=1618033),
-    clusterer=sklearn.cluster.DBSCAN(),
-    cover=km.Cover(n_cubes=20, perc_overlap=0.4)
+    clusterer=sklearn.cluster.KMeans(random_state=1618033),
+    cover=km.Cover(n_cubes=10, perc_overlap=0.6)
 )  # Create dictionary called 'graph' with nodes, edges and meta-information
-#
-# graph = mapper.map(lens,
-#     clusterer=AgglomerativeClustering(
-#         n_clusters=3,
-#         linkage="complete",
-#         affinity="euclidean"),
-#     cover=km.Cover(n_cubes=12, perc_overlap=0.6))
 
 print("mapper ended")
 print(str(len(df['dataset'])) + " " + str(len(Xfilt)))
@@ -57,9 +47,9 @@ y_visual = df.data_label
 
 html = mapper.visualize(
     graph,
-    path_html="C:/XTDA/apr2023XTDAResults/graphstatisticsdata/kmeans_10_6_mapper.html",
+    path_html="save html",
     title="mapper html",
     custom_tooltips=y_visual
 )  # Visualize the graph
 
-webbrowser.open('C:/XTDA/apr2023XTDAResults/graphstatisticsdata/kmeans_10_6_mapper.html')
+webbrowser.open('view mapper')

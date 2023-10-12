@@ -104,7 +104,7 @@ def rips_betti(unique_graph_indicator, graph_indicators, df_edges, dataset):  # 
 
 if __name__ == '__main__':
     data_path = "path to data"
-    data_list = ('REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
+    data_list = ('MUTAG', 'BZR', 'ENZYMES', 'PROTEINS', 'DHFR', 'NCI1', 'COX2', 'REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
     for dataset in data_list:
         unique_graph_indicator, graph_indicators, df_edges = read_csv(dataset)
         rips_betti(unique_graph_indicator, graph_indicators, df_edges, dataset)

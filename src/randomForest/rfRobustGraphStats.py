@@ -1,8 +1,3 @@
-"""
-description: this code reads all the gstatistics csv file and trains the rf classifier for each dataset
-created on: 07-04-2023
-created by: Taiwo Funmilola Mary
-"""
 import glob
 import os
 import random
@@ -84,14 +79,14 @@ def main():
 
 if __name__ == "__main__":
     # Set input and output file paths
-    datapath = "/project/def-cakcora/taiwo/Apr2023/result/kernelAndGstats/Robust/stats"
+    datapath = "path to robust graph statsistics data"
     collect_files = os.path.join(datapath + "/*.csv")  # merging the files
     list_files = glob.glob(collect_files)  # A list of all collected files is returned
     for files in list_files:
         # Generate a new output file name based on the input file name
         input_filename = os.path.basename(files)
         output_filename = "rf_" + input_filename  # Prefix "rf_" added to the file name
-        outputfile = os.path.join("/project/def-cakcora/taiwo/Apr2023/result/randomForest", output_filename)
+        outputfile = os.path.join("folder location", output_filename)
         # Open output file for writing with header
         with open(outputfile, "w") as file:
             header = 'dataset\tgraphTime\ttrainTime\taccuracy\tauc\tflat_conf_mat\n'

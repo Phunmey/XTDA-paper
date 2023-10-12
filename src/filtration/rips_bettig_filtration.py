@@ -60,8 +60,7 @@ def alpha_filt(unique_graph_indicator, graph_indicators, df_edges, step_size, da
         train_dgm_1 = train_rips[1]
 
         # save the persistence diagrams
-        filename = "/home/taiwo/projects/def-cakcora/taiwo/Apr2023/persistentDiagram/" + dataset + str(
-            step_size) + "ripsbettig.txt"
+        filename = "save PD"
         with open(filename, "a") as f:
             f.write(f"{graph_id}: {train_dgm_0, train_dgm_1}\n")
             f.flush()  # ensures data is written to file
@@ -128,9 +127,7 @@ def alpha_filt(unique_graph_indicator, graph_indicators, df_edges, step_size, da
     feature_data.rename(columns=columnnames, inplace=True)  # give column names to dataframe
 
     # write dataframe to file
-    feature_data.to_csv(
-        "/home/taiwo/projects/def-cakcora/taiwo/Apr2023/result/filtration/" + dataset + str(
-            step_size) + "_ripsbettig.csv", index=False)
+    feature_data.to_csv("save dataframe", index=False)
 
 
 def main():
@@ -139,7 +136,7 @@ def main():
 
 
 if __name__ == '__main__':
-    data_path = "/home/taiwo/projects/def-cakcora/taiwo/data"  # dataset path on computer
+    data_path = "path to data"  # dataset path on computer
     data_list = ('ENZYMES', 'BZR', 'MUTAG', 'PROTEINS', 'DHFR', 'NCI1', 'COX2', 'REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
     for dataset in data_list:
         for step_size in (10, 20, 50, 100):  # we will consider step size 100 for epsilon

@@ -71,8 +71,6 @@ def silhouette_data(unique_graph_indicator, graph_indicators, df_edges, dataset,
 
     feature_data = pd.DataFrame(silhouette_data)
 
-
-
     #    giving column names
     columnnames = {}  # create an empty dict
     count = -4  # initialize count to -1
@@ -87,8 +85,7 @@ def silhouette_data(unique_graph_indicator, graph_indicators, df_edges, dataset,
     feature_data.rename(columns=columnnames, inplace=True)  # give column names to dataframe
 
     # write dataframe to file
-    feature_data.to_csv(
-        "/project/def-cakcora/taiwo/Apr2023/result/landscapeSilhouette/featureData/" + dataset + "_ps.csv", index=False)
+    feature_data.to_csv("save dataframe", index=False)
 
 
 def main():
@@ -97,7 +94,7 @@ def main():
 
 
 if __name__ == '__main__':
-    data_path = "/home/taiwo/projects/def-cakcora/taiwo/data"  # dataset path on computer
+    data_path = "path to data"  # dataset path on computer
     data_list = ('ENZYMES', 'BZR', 'MUTAG', 'PROTEINS', 'DHFR', 'NCI1', 'COX2', 'REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
     for dataset in data_list:
         main()

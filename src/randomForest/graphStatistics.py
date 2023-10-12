@@ -1,7 +1,5 @@
 """
-description: this code reads all the gstatistics csv file and trains the rf classifier for each dataset
-created on: 07-04-2023
-created by: Taiwo Funmilola Mary
+description: this code reads all the graph statistics csv file and trains the rf classifier for each dataset
 """
 
 import random
@@ -84,8 +82,8 @@ def main():
 
 if __name__ == "__main__":
     # Set input and output file paths
-    input_file = "/project/def-cakcora/taiwo/Apr2023/result/kernelAndGstats/graphStatisticswithDegrees.csv"
-    output_file = "/project/def-cakcora/taiwo/Apr2023/result/randomForest/graphStatisticswithDegrees.csv"
+    input_file = "path to graph statistics data"
+    output_file = "save result to folder "
     # Open output file for writing with header
     with open(output_file, "w") as file:
         header = 'element\tgraphTime\ttrainTime\taccuracy\tauc\tflat_conf_mat\n'

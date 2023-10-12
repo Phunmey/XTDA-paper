@@ -1,7 +1,5 @@
 """
 description: this code reads all the resistance filtration files in the ResistanceFiltration folder and trains the rf classifier using each of this file
-created on: 27-04-2023
-created by: Taiwo Funmilola Mary
 """
 
 import random
@@ -84,10 +82,10 @@ def main():
 
 
 if __name__ == "__main__":
-    datapath = "/project/def-cakcora/taiwo/Apr2023/result/RobustTrendFiltration/new"
+    datapath = "path to robust filtration result data"
     collect_files = os.path.join(datapath + "/*.csv")  # merging the files
     list_files = glob.glob(collect_files)  # A list of all collected files is returned
-    outputfile = "/project/def-cakcora/taiwo/Apr2023/result/randomForest/rfRobustTrendFiltration0506.csv"
+    outputfile = "save result"
     with open(outputfile, "w") as file:
         header = 'filename\tfiltrTime\ttrainTime\taccuracy\tauc\tflat_conf_mat\n'
         file.write(header)

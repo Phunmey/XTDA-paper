@@ -1,7 +1,5 @@
 """
-created by: Taiwo Funmilola Mary
-Date: 02-03-2023
-description: read the landscape and silhouette csv files and train the randomforest
+description: silhouette csv files and train the randomforest
 """
 
 import random
@@ -98,10 +96,10 @@ def main():
 
 
 if __name__ == "__main__":
-    data_path = "/home/taiwo/projects/def-cakcora/taiwo/Apr2023/result/landscapeSilhouette/featureDataSilhouette"  # dataset path on computer
+    data_path = "path to silhouette feature data"  # dataset path on computer
     collect_files = os.path.join(data_path + "/*.csv")  # merging the files
     list_files = glob.glob(collect_files)  # A list of all collected files is returned
-    outputFile = "/home/taiwo/projects/def-cakcora/taiwo/Apr2023/result/randomForest/" + 'rfSilhouette.csv'
+    outputFile = "path to result folder" + 'rfSilhouette.csv'
     file = open(outputFile, 'w')
     for files in list_files:
         filename = os.path.basename(files).split(".")[0]  # filename without the extension

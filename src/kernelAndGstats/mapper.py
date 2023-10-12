@@ -8,7 +8,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
 
 
-csv_tda = pd.read_csv(r"C:\XTDA\apr2023XTDAResults\graphStatistics.csv", header=0)
+csv_tda = pd.read_csv("path to graph statistics data", header=0)
 csv_tda['motif_3'] = csv_tda['motif3'] / (
             (csv_tda['numNodes'] * (csv_tda['numNodes'] - 1) * (csv_tda['numNodes'] - 2)) / 6)
 csv_tda['motif_4'] = csv_tda['motif4'] / (

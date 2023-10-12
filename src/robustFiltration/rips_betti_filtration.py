@@ -118,8 +118,7 @@ def rips_filt(unique_graph_indicator, graph_indicators, df_edges, step_size, dat
         train_dgm_1 = train_rips[1]
 
         # save the persistence diagrams
-        filename = "/home/taiwo/projects/def-cakcora/taiwo/Apr2023/RobustTrendPersistentDiagram/" + dataset + str(
-            step_size) + distance + "_" + str(perc) + "_betti.txt"
+        filename = "save PD"
         with open(filename, "a") as f:
             f.write(f"{graph_id}: {train_dgm_0, train_dgm_1}\n")
             f.flush()  # ensures data is written to file
@@ -161,9 +160,7 @@ def rips_filt(unique_graph_indicator, graph_indicators, df_edges, step_size, dat
     feature_data.rename(columns=columnnames, inplace=True)  # give column names to dataframe
 
     # write dataframe to file
-    feature_data.to_csv(
-        "/home/taiwo/projects/def-cakcora/taiwo/Apr2023/result/RobustTrendFiltration/newreddit/" + dataset + str(
-            step_size) + distance + " " + str(perc) + "_betti.csv", index=False)
+    feature_data.to_csv("save dataframe", index=False)
 
 
 def main(distance, step_size, dataset, perc):
@@ -172,8 +169,8 @@ def main(distance, step_size, dataset, perc):
 
 
 if __name__ == '__main__':
-    data_path = "/home/taiwo/projects/def-cakcora/taiwo/data"  # dataset path on computer
-    data_list = ('REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
+    data_path = "path to data"  # dataset path on computer
+    data_list = ('ENZYMES', 'BZR', 'MUTAG', 'PROTEINS', 'DHFR', 'NCI1', 'COX2', 'REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
     for ele in data_list:
         for st in (10, 20, 50, 100):  # we will consider step size 100 for epsilon
             for per in [0.20, 0.25, 0.30, 0.35, 0.40, 0.45]:

@@ -69,8 +69,7 @@ def landscape_train(unique_graph_indicator, graph_indicators, df_edges, dataset,
     feature_data.rename(columns=columnnames, inplace=True)  # give column names to dataframe
 
     # write dataframe to file
-    feature_data.to_csv(
-        "/project/def-cakcora/taiwo/Apr2023/result/landscapeSilhouette/reddit/" + dataset + "_rips_pl.csv", index=False)
+    feature_data.to_csv("save dataframe", index=False)
 
 
 def main():
@@ -79,7 +78,7 @@ def main():
 
 
 if __name__ == '__main__':
-    data_path = "/home/taiwo/projects/def-cakcora/taiwo/data"  # dataset path on computer
-    data_list = ('REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
+    data_path = "path to data"  # dataset path on computer
+    data_list = ('ENZYMES', 'BZR', 'MUTAG', 'PROTEINS', 'DHFR', 'NCI1', 'COX2', 'REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
     for dataset in data_list:
         main()

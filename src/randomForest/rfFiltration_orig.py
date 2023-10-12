@@ -1,9 +1,6 @@
 """
 description: this code reads all the filtration files in the feature_df folder and trains the rf classifier using each of this file
-created on: 06-02-2023
-created by: Taiwo Funmilola Mary
 """
-
 
 import random
 from datetime import datetime
@@ -17,17 +14,16 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, roc_auc_score
 from sklearn.model_selection import GridSearchCV, train_test_split
 
-
 random.seed(123)
 
 
 def read_data(csv_tda):
     # calculate sum of filtrTime
     filtrTime = csv_tda["filtrTime"].sum()
-    #features = csv_tda.drop(csv_tda.columns[[0, 1, 2, 3]], axis=1)
+    # features = csv_tda.drop(csv_tda.columns[[0, 1, 2, 3]], axis=1)
     features = csv_tda.iloc[:, 4:14]
     labels = csv_tda.iloc[:, [2]].values.ravel()
-    
+
     x_train, x_test, y_train, y_test = train_test_split(features, labels, test_size=0.2)
 
     return x_train, y_train, x_test, y_test, filtrTime
@@ -87,10 +83,10 @@ def main():
 
 
 if __name__ == "__main__":
-    datapath = "/project/def-cakcora/taiwo/Apr2023/result/filtration"
+    datapath = "path to filtration result folder "
     collect_files = os.path.join(datapath + "/*.csv")  # merging the files
     list_files = glob.glob(collect_files)  # A list of all collected files is returned
-    outputfile = "/project/def-cakcora/taiwo/Apr2023/result/randomForest/rfFiltrationeps.csv"
+    outputfile = "save result"
     with open(outputfile, "w") as file:
         header = 'filename\tfiltrTime\ttrainTime\taccuracy\tauc\tflat_conf_mat\n'
         file.write(header)

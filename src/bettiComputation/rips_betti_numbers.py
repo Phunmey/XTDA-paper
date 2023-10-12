@@ -2,8 +2,6 @@
 Compute the count of 0, 1, and 2-dimensional holes in the dataset
 """
 
-
-
 import random
 import sys
 import numpy as np
@@ -130,7 +128,7 @@ def betti_stats(unique_graph_indicator, graph_indicators, df_edges, perc, datase
                                  columns=['min_degree', 'max_degree', 'B0', 'B1'])).rename_axis(
         'id').reset_index()
 
-    df.to_csv("/home/taiwo/projects/def-cakcora/taiwo/Apr2023/result/bettiComputation/" + dataset + distance + "_" + str(
+    df.to_csv("path to result folder" + dataset + distance + "_" + str(
         perc) + "_betti.csv", index=False)
 
 
@@ -140,9 +138,9 @@ def main(distance, dataset, perc):
 
 
 if __name__ == '__main__':
-    data_path = "/home/taiwo/projects/def-cakcora/taiwo/data"
+    data_path = "path to data"
     data_list = ('MUTAG', 'BZR', 'ENZYMES', 'PROTEINS', 'DHFR', 'NCI1', 'COX2', 'REDDIT-MULTI-5K', 'REDDIT-MULTI-12K')
-    # outputfile = "/home/taiwo/projects/def-cakcora/taiwo/src/predictive_computation/" + "predictive_compute.csv"
+    outputfile = "path to result folder" + "predictive_compute.csv"
     for ele in data_list:
         for per in (0.05, 0.1, 0.15):
             main(distance="spd", dataset=ele, perc=per)
